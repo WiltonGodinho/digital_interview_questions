@@ -61,10 +61,19 @@ const formattedProducts = [
 //DO NOT modify this
 const rawProducts = require('./1-input')
 
+const priceToString = (price) => {
+  const twoDec = parseFloat(price).toFixed(2)
+  return `$${twoDec}`
+}
 
 //You must complete this function
 const formatProducts = products => {
     //your code here
+    const validPrice = products.filter(x => !isNaN(x.price))
+    const formatedProducts = validPrice.map(p => {
+      return {...p, formattedPrice: priceToString(p.price)}
+    })
+    return formatedProducts
 }
 
 const formattedProducts = formatProducts(rawProducts)
