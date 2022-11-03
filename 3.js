@@ -32,3 +32,26 @@ const input = [
 const input = require('./3-input')
 
 //Hint, the final multiplication is: 933 * 438 =  408654
+
+const sumArray = array => {
+    return array.reduce((total, curr) => {
+        return total += curr
+    }, 0) 
+}
+
+const trackTotal = twoDim => {
+    return twoDim.map((curr, i) => { 
+        return {index: i, total: sumArray(curr)}
+})
+}
+
+const sortByTotal = arr => {
+    return arr.sort((a,b) => a.total - b.total)
+}
+
+console.log(sumArray(input[0]))
+const summedValues = trackTotal(input)
+const sorted = sortByTotal(summedValues)
+const second = sorted[1]
+const secondToLast = sorted[sorted.length - 2]
+console.log(second, secondToLast)

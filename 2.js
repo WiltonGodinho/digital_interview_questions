@@ -45,10 +45,17 @@ const cartTotal = '$2143.73'
 //DO NOT modify this
 const rawProducts = require('./2-input')
 
+const addUp = products => {
+  return products.reduce((total, curr) => {
+    const number = Number(curr.price.replace(/[^0-9\.]+/g,""))
+    total += number 
+    return total
+  },0)}
 
 //You must complete out this function
 const calculateCartTotal = products => {
-    //your code here
+    const total = addUp(products)
+    return `$${total.toFixed(2)}`
 }
 
 const cartTotal = calculateCartTotal(rawProducts)
