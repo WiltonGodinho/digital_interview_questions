@@ -46,7 +46,11 @@ const trackTotal = twoDim => {
 }
 
 const sortByTotal = arr => {
-    return arr.sort((a,b) => a.total - b.total)
+    return arr.sort((a,b) => b.total - a.total)
+}
+
+const sortArray = arr => {
+    return arr.sort((a,b) => b - a)
 }
 
 console.log(sumArray(input[0]))
@@ -55,3 +59,8 @@ const sorted = sortByTotal(summedValues)
 const second = sorted[1]
 const secondToLast = sorted[sorted.length - 2]
 console.log(second, secondToLast)
+const sortedSecond = sortArray(input[second.index])
+const sortedSecondLast = sortArray(input[secondToLast.index])
+console.log(sortedSecond[0])
+console.log(sortedSecondLast[0])
+const result = sortedSecond[0] * sortedSecondLast[0]
